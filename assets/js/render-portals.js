@@ -8,11 +8,19 @@ import { renderNotifications } from "./render-notifications.js";
 import { renderBtnNewSearch } from "./renderBtnNewSearch.js";
 import { btnNewSearchExists } from "./btnNewSearchExists.js";
 import { btnPortalsExists } from "./btnPortalsExists.js";
+import { appConfig } from "./appConfig.js";
 
 export async function renderPortals(input, inputType) {
    btnPortalsExists();
    btnNewSearchExists();
    // document.querySelector("#btn-portals").style.width = "45%";
+
+   let client = ZAFClient.init();
+   let settings = await client.metadata().then((metadata) => metadata.settings);
+   console.log(settings);
+   let tokenForEngine = await settings["Token do Engine"];
+   let tokenForCoupons = await settings["Token do Coupon"];
+   console.log([tokenForEngine, tokenForCoupons]);
 
    let consumerDataobject;
    // console.log(input);
@@ -48,11 +56,11 @@ export async function renderPortals(input, inputType) {
    switch (inputType) {
       case "phonenumber":
          try {
-            consumersData = await client.request(endpoints.consumersForPhoneNumber(input));
+            consumersData = await client.request(endpoints.consumersForPhoneNumber(input, tokenForEngine));
             consumerId = consumersData[0]?.id;
             console.log(consumerId);
             try {
-               consumersData = await client.request(endpoints.consumersForId(consumerId));
+               consumersData = await client.request(endpoints.consumersForId(consumerId, tokenForEngine));
                console.log("GET CONSUMERS FOR PHONE NUMBER/ CONSUMER ID");
                console.log(consumersData);
                phoneNumber = input;
@@ -73,9 +81,9 @@ export async function renderPortals(input, inputType) {
 
       case "cpf":
          try {
-            consumersData = await client.request(endpoints.consumersForCpf(input));
+            consumersData = await client.request(endpoints.consumersForCpf(input, tokenForEngine));
             consumerId = consumersData[0].id;
-            consumersData = await client.request(endpoints.consumersForId(consumerId));
+            consumersData = await client.request(endpoints.consumersForId(consumerId, tokenForEngine));
             phoneNumber = consumersData?.mobile ?? "";
 
             renderPortalsContainers(consumersData);
@@ -91,7 +99,7 @@ export async function renderPortals(input, inputType) {
          break;
       case "consumerid":
          try {
-            consumersData = await client.request(endpoints.consumersForId(input));
+            consumersData = await client.request(endpoints.consumersForId(input, tokenForEngine));
             7;
             renderPortalsContainers(consumersData);
             console.log("GET CONSUMERS FOR ID");
@@ -112,7 +120,6 @@ export async function renderPortals(input, inputType) {
          elements.portalContainer.style.display = "none";
          elements.menuTabContainer.style.display = "flex";
          elements.mainProfile.style.display = "flex";
-     
 
          console.log(phoneNumber);
          console.log(chosenPortal);

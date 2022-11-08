@@ -1,87 +1,87 @@
 export const endpoints = {
-   consumersForId(consumerId) {
+   consumersForId(consumerId, tokenForEngine) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/consumers/${consumerId}/`,
          headers: {
-            Authorization: "Bearer 7rpcZp2jiaXhFmZxY4kvetoB0086A5W567",
+            Authorization: tokenForEngine,
             contentType: "application/json",
          },
       };
       return endpoint;
    },
-   consumersForPhoneNumber(phoneNumber) {
+   consumersForPhoneNumber(phoneNumber, tokenForEngine) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/consumers/?search=55${phoneNumber}`,
          headers: {
-            Authorization: "Bearer 7rpcZp2jiaXhFmZxY4kvetoB0086A5W567",
+            Authorization: tokenForEngine,
             contentType: "application/json",
          },
       };
       return endpoint;
    },
-   consumersForCpf(cpf) {
+   consumersForCpf(cpf, tokenForEngine) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/consumers/?cpf=${cpf}`,
          headers: {
-            Authorization: "Bearer 7rpcZp2jiaXhFmZxY4kvetoB0086A5W567",
+            Authorization: tokenForEngine,
             contentType: "application/json",
          },
       };
       return endpoint;
    },
-   profilesForId(consumerId) {
+   profilesForId(consumerId, tokenForEngine) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/profiles?consumerId=${consumerId}`,
          headers: {
-            Authorization: "bearer dGl0aS1lLXdlc2xleS1zbmlwZXM=",
+            Authorization: tokenForEngine,
             contentType: "application/json",
          },
       };
       return endpoint;
    },
-   profilesForCpf(cpf) {
+   profilesForCpf(cpf, tokenForEngine) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/profiles?cpf=${cpf}`,
          headers: {
-            Authorization: "bearer dGl0aS1lLXdlc2xleS1zbmlwZXM=",
+            Authorization: tokenForEngine,
             contentType: "application/json",
          },
       };
       return endpoint;
    },
-   transactionsForId(consumerId, chosenPortal) {
+   transactionsForId(consumerId, chosenPortal, tokenForEngine) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/consumers/${consumerId}/portals/${chosenPortal}/transactions?limit=10`,
          headers: {
-            Authorization: "Bearer 7rpcZp2jiaXhFmZxY4kvetoB0086A5W567",
+            Authorization: tokenForEngine,
             contentType: "application/json",
          },
       };
       return endpoint;
    },
-   notificationsForPhoneNumber(phoneNumber, chosenPortal) {
+   notificationsForPhoneNumber(phoneNumber, chosenPortal, tokenForEngine) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/consumers/55${phoneNumber}/profiles/${chosenPortal}/notifications`,
          headers: {
-            Authorization: "Bearer 7rpcZp2jiaXhFmZxY4kvetoB0086A5W567",
+            Authorization: tokenForEngine,
             contentType: "application/json",
          },
       };
       return endpoint;
    },
-   couponsForId(consumerId) {
+   couponsForId(consumerId, tokenForCoupon) {
       let endpoint = {
          type: "GET",
          url: `https://api-hmg.bonuz.com/bonuz-coupons/coupons?consumerId=${consumerId}`,
          headers: {
-            Authorization: "bearer TvqSXOMXDEebdLpnYcL2HPhGeCN672dHIiotw628ce5b411c93",
+            Authorization: tokenForCoupon,
             contentType: "application/json",
          },
       };

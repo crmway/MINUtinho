@@ -1,11 +1,12 @@
 import { masks } from "./js/masks.js";
 import { throwErrorMessage } from "./js/throwErrorMessage.js";
 import { validateFields } from "./js/validateFields.js";
-import { autoFillInputFiels } from "./js/autoFillInputFiels.js";
+import { autoFillInputFields } from "./js/autoFillInputFields.js";
 import { elements } from "./js/elements.js";
 import { renderPortals } from "./js/render-portals.js";
 import { renderBtnNewSearch } from "./js/renderBtnNewSearch.js";
 import { btnNewSearchExists } from "./js/btnNewSearchExists.js";
+import { appConfig } from "./js/appConfig.js";
 
 elements.inputCpf.addEventListener("input", () => masks.maskCpf(elements.inputCpf, ""));
 elements.inputPhoneNumber.addEventListener("input", () => masks.maskPhoneNumber("input-html", elements.inputPhoneNumber));
@@ -18,7 +19,7 @@ elements.btnInitialSearch.addEventListener("click", () => {
    if (inputValidationObject.field == "cpf" && inputValidationObject.validate == true) renderPortals(inputValidationObject.fieldValue, inputValidationObject.field);
    if (inputValidationObject.field == "consumerid" && inputValidationObject.validate == true) renderPortals(inputValidationObject.fieldValue, inputValidationObject.field);
 });
-autoFillInputFiels();
+autoFillInputFields();
 
 // let lastEntryMemory = JSON.parse(window.localStorage.getItem("inputMemory"));
 // console.log(lastEntryMemory);

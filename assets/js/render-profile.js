@@ -10,6 +10,12 @@ import { masks } from "./masks.js";
 export async function renderProfile(consumersData, consumerId, chosenPortal) {
    btnPortalsExists();
    btnNewSearchExists();
+   let client = ZAFClient.init();
+   let settings = await client.metadata().then((metadata) => metadata.settings);
+   console.log(settings);
+   let tokenForEngine = await settings["Token do Engine"];
+   let tokenForCoupons = await settings["Token do Coupon"];
+   console.log([tokenForEngine, tokenForCoupons]);
 
    let ProfileItem = "";
    let clientName = consumersData.name ? capitalize(consumersData.name) : "Nome do cliente não cadastrado";
@@ -54,7 +60,7 @@ export async function renderProfile(consumersData, consumerId, chosenPortal) {
    const noExperiences = `<p> Você não possui notificações par ao portal ${capitalize(chosenPortal.replace(/-/g, " "))}</p>`;
 
    try {
-      profilesData = await client.request(endpoints.profilesForId(consumerId));
+      profilesData = await client.request(endpoints.profilesForId(consumerId, tokenForEngine));
       function listExperiencesForPortal() {
          const allProfilesByChosenPortal = profilesData.filter((profile) => profile.portal == chosenPortal);
          const allExperiencesByChosenPortal = allProfilesByChosenPortal.map((profile) => profile.experience);

@@ -1,5 +1,5 @@
 import { elements } from "./elements.js";
-export function autoFillInputFiels() {
+export function autoFillInputFields() {
    let inputMemoryObject = JSON.parse(window.localStorage.getItem("inputMemoryObject"));
 
    // console.log(inputMemoryObject);

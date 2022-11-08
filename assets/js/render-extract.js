@@ -4,11 +4,18 @@ import { elements } from "./elements.js";
 import { loader } from "./loader.js";
 
 export async function renderExtract(consumerId, chosenPortal) {
+   let client = ZAFClient.init();
+   let settings = await client.metadata().then((metadata) => metadata.settings);
+   console.log(settings);
+   let tokenForEngine = await settings["Token do Engine"];
+   let tokenForCoupons = await settings["Token do Coupon"];
+   console.log([tokenForEngine, tokenForCoupons]);
+
    loader(elements.extractContainer);
    let couponsData = "";
 
    try {
-      couponsData = await client.request(endpoints.couponsForId(consumerId));
+      couponsData = await client.request(endpoints.couponsForId(consumerId, tokenForCoupons));
    } catch {
       console.log("CONSUMER ID NÃO ENCONTRADO NO GET COUPONS ", consumerId);
    }
@@ -16,7 +23,7 @@ export async function renderExtract(consumerId, chosenPortal) {
 
    let transactionsData = "";
    try {
-      transactionsData = await client.request(endpoints.transactionsForId(consumerId, chosenPortal));
+      transactionsData = await client.request(endpoints.transactionsForId(consumerId, chosenPortal, tokenForEngine));
       console.log("TRANSACTION DATA");
       console.log(transactionsData);
       let rewardsList = transactionsData._embedded.rewards;

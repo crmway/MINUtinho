@@ -3,10 +3,18 @@ import { convertDate, capitalize } from "./utils.js";
 import { elements } from "./elements.js";
 
 export async function renderNotifications(phoneNumber, chosenPortal) {
+   let client = ZAFClient.init();
+   let settings = await client.metadata().then((metadata) => metadata.settings);
+   console.log(settings);
+   let tokenForEngine = await settings["Token do Engine"];
+   let tokenForCoupons = await settings["Token do Coupon"];
+   console.log([tokenForEngine, tokenForCoupons]);
+
    let notificationsData = "";
+
    const noNotifications = `<p class="no-notification"> Você não possui notificações</p>`;
    try {
-      notificationsData = await client.request(endpoints.notificationsForPhoneNumber(phoneNumber, chosenPortal));
+      notificationsData = await client.request(endpoints.notificationsForPhoneNumber(phoneNumber, chosenPortal, tokenForEngine));
       console.log("NOTIFICATIONS DATA");
       console.log(notificationsData);
       if (notificationsData.length != 0) {
@@ -31,10 +39,6 @@ export async function renderNotifications(phoneNumber, chosenPortal) {
             `;
             elements.mainNotificationsContainer.insertAdjacentHTML("afterbegin", notificationItem);
          }
-
-
-
-         
       } else {
          elements.mainNotificationsContainer.insertAdjacentHTML("afterbegin", noNotifications);
       }
