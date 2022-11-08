@@ -1,0 +1,496 @@
+@import url("https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+#loader-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  padding: 20px;
+  margin: 0 auto; }
+  #loader-box #loading {
+    height: 0;
+    width: 0;
+    padding: 15px;
+    border: 6px solid #ccc;
+    border-right-color: #0583F2;
+    border-radius: 50%;
+    animation: rotate 1s infinite linear; }
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+.no-notification {
+  margin-top: 50px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 600;
+  font-size: 15px;
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+h1 {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px; }
+
+p {
+  width: 100%; }
+
+input {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 10px; }
+
+input[type=button] {
+  width: 100%;
+  background-color: #0583F2;
+  padding: 5px;
+  color: #FFF;
+  font-weight: 600;
+  letter-spacing: 0.05em; }
+
+input[type=button]:hover {
+  box-shadow: 0px 3px 6px 0px rgba(100, 100, 100, 0.8);
+  transform: translateY(-2px);
+  cursor: pointer; }
+
+input[type=radio] {
+  display: none; }
+
+.hide {
+  display: none; }
+
+#input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; }
+
+.modal-alert {
+  text-align: center; }
+
+.accordion {
+  overflow: hidden;
+  cursor: pointer; }
+  .accordion .accordion-item {
+    overflow: hidden; }
+    .accordion .accordion-item .item-input {
+      display: none; }
+      .accordion .accordion-item .item-input:checked ~ .item-content {
+        max-height: 100vh; }
+    .accordion .accordion-item .item-label {
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer; }
+    .accordion .accordion-item .item-content {
+      transition: all 0.3s ease-in-out;
+      max-height: 0;
+      overflow: hidden; }
+
+.main-container {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #90cee177; }
+
+.parent-container {
+  width: 100%;
+  padding: 20px 10px 20px 10px;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  border-radius: 4px; }
+
+.child-container {
+  width: 100%;
+  padding: 7px;
+  text-align: center;
+  background-color: #90cee177;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  margin: 5px 0px 5px 0px; }
+  .child-container:hover {
+    transform: scale(1.01);
+    -webkit-box-shadow: 0px 0px 3px 0px #000000;
+    box-shadow: 0px 0px 3px 0px #000000; }
+
+#portal-container {
+  background-color: #FFF; }
+
+.message-container {
+  display: none;
+  text-align: center;
+  padding: 40px 10px 40px 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid #0583F2; }
+
+#nav-tab {
+  display: none;
+  justify-content: space-around; }
+  #nav-tab input[type=radio] {
+    display: none; }
+    #nav-tab input[type=radio]:checked + label {
+      background-color: #90cee177;
+      color: #000; }
+  #nav-tab label {
+    color: #FFF;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    background-color: #0583F2;
+    padding: 3px; }
+
+#main-profile {
+  display: none;
+  flex-wrap: wrap;
+  height: auto;
+  padding: 0; }
+  #main-profile #default-profile-parent .profile-default-child {
+    text-align: left; }
+    #main-profile #default-profile-parent .profile-default-child div span {
+      font-weight: 500; }
+  #main-profile #notification-channels-parent p {
+    width: 100%;
+    text-align: center;
+    font-weight: 500; }
+  #main-profile #experiences-parent {
+    height: auto;
+    text-align: center; }
+    #main-profile #experiences-parent .experience-container {
+      overflow: hidden;
+      width: 100%;
+      padding: 7px;
+      text-align: center;
+      background-color: #90cee177;
+      border: 1px solid #CCC;
+      border-radius: 4px;
+      margin: 5px 0px 5px 0px;
+      height: auto; }
+      #main-profile #experiences-parent .experience-container:hover {
+        -webkit-box-shadow: 0px 0px 3px 0px #000000;
+        box-shadow: 0px 0px 3px 0px #000000;
+        height: auto; }
+      #main-profile #experiences-parent .experience-container .experience-header {
+        overflow: hidden;
+        width: 100%; }
+        #main-profile #experiences-parent .experience-container .experience-header .item-label {
+          width: 100%;
+          font-size: 13px;
+          padding: 15px;
+          font-weight: 600; }
+        #main-profile #experiences-parent .experience-container .experience-header .item-input {
+          display: none; }
+          #main-profile #experiences-parent .experience-container .experience-header .item-input:checked ~ .experience-content {
+            height: auto; }
+        #main-profile #experiences-parent .experience-container .experience-header .experience-content {
+          cursor: auto;
+          transition: all 0.3s ease-in-out;
+          height: 0; }
+          #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container {
+            background-color: #FFF;
+            width: 100%;
+            cursor: auto;
+            overflow-x: hidden;
+            margin: 10px;
+            padding: 7px 5px 5px 5px; }
+            #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container:hover {
+              -webkit-box-shadow: 0px 0px 3px 0px #0000005f;
+              box-shadow: 0px 0px 3px 0px #0000005f; }
+            #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header {
+              width: 100%;
+              overflow: hidden; }
+              #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .item-label {
+                width: 100%;
+                font-size: 12px;
+                padding: 5px;
+                font-weight: 500; }
+              #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .item-input {
+                display: none; }
+                #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .item-input:checked ~ .profile-content {
+                  height: auto; }
+              #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content {
+                text-align: left;
+                transition: all 0.3s ease-in-out;
+                height: 0; }
+                #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate {
+                  width: 100%;
+                  margin: 10px auto; }
+                  #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .item {
+                    border-bottom: 1px solid #3d2101;
+                    padding: 5px; }
+                    #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .item:hover {
+                      background-color: rgba(255, 255, 255, 0.04); }
+                  #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .controls {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 8px; }
+                    #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .controls div {
+                      cursor: pointer;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 14; }
+                #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .controls div:not(.numbers),
+                #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .controls div.numbers div {
+                  width: 20px;
+                  height: 20px; }
+                #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .controls div.numbers div:hover,
+                #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content #paginate .controls div.numbers div.active {
+                  color: #0583F2;
+                  font-size: 1.3em; }
+                #main-profile #experiences-parent .experience-container .experience-header .experience-content .profile-container .profile-header .profile-content .short-profile {
+                  border-top: 1px solid #CCC;
+                  padding: 5px; }
+
+#btn-returns-container {
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+  #btn-returns-container .btn-previous-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 10px;
+    width: 100%; }
+    #btn-returns-container .btn-previous-container input {
+      width: 100%; }
+
+.item-hover:hover {
+  transform: scale(1.01);
+  -webkit-box-shadow: 0px 0px 3px 0px #0000005f;
+  box-shadow: 0px 0px 3px 0px #0000005f; }
+
+#main-extract {
+  background-color: #90cee177;
+  padding: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  display: none; }
+  #main-extract div {
+    width: 100%;
+    margin: 0;
+    padding: 0; }
+    #main-extract div .reward-container {
+      background-color: #FFF;
+      border: 1px solid #CCC;
+      border-radius: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 10px;
+      width: 100%;
+      overflow: hidden;
+      margin: 10px 0px 0px 0px; }
+      #main-extract div .reward-container .reward-icon {
+        width: 65px;
+        height: 65px; }
+        #main-extract div .reward-container .reward-icon img {
+          min-width: 65px;
+          min-height: 65px;
+          border-radius: 50%;
+          border: 1px solid #CCC; }
+      #main-extract div .reward-container .reward-resume {
+        padding: 5px;
+        width: calc(100% - 65px);
+        padding: 5px 10px; }
+        #main-extract div .reward-container .reward-resume label {
+          font-weight: 700;
+          font-size: 13px;
+          width: 100%;
+          cursor: pointer; }
+        #main-extract div .reward-container .reward-resume .reward-timestamp {
+          padding-left: 15px; }
+        #main-extract div .reward-container .reward-resume .reward-price {
+          padding-left: 15px; }
+      #main-extract div .reward-container .item-input {
+        display: none; }
+        #main-extract div .reward-container .item-input:checked ~ .item-content {
+          max-height: 100vh; }
+      #main-extract div .reward-container .item-content {
+        transition: all 0.3s ease-in-out;
+        max-height: 0;
+        width: 100%;
+        overflow: hidden; }
+        #main-extract div .reward-container .item-content .deal-container {
+          overflow: hidden;
+          border: 1px solid #CCC;
+          border-radius: 4px;
+          background-color: #E9EBED;
+          padding: 5px;
+          margin-right: 10px;
+          margin-top: 20px; }
+          #main-extract div .reward-container .item-content .deal-container:hover {
+            transform: scale(1.01);
+            -webkit-box-shadow: 0px 3px 6px 6px #0000005f;
+            box-shadow: 0px 3px 6px 6px #0000005f; }
+          #main-extract div .reward-container .item-content .deal-container p {
+            text-align: left; }
+          #main-extract div .reward-container .item-content .deal-container .deal-item {
+            overflow: hidden;
+            width: 100%; }
+            #main-extract div .reward-container .item-content .deal-container .deal-item header {
+              display: flex;
+              width: 100%; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item header .deal-icon {
+                width: 45px;
+                height: 45px; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item header .deal-icon img {
+                  min-width: 45px;
+                  min-height: 45px;
+                  border-radius: 50%;
+                  border: 1px solid #CCC; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item header div {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                width: calc(100% - 50px); }
+                #main-extract div .reward-container .item-content .deal-container .deal-item header div .deal-label {
+                  font-size: 13px;
+                  font-weight: 700;
+                  padding-left: 10px;
+                  cursor: pointer;
+                  width: 100%; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item header div .timestamp {
+                  display: flex;
+                  width: 100%;
+                  padding-left: 10px; }
+                  #main-extract div .reward-container .item-content .deal-container .deal-item header div .timestamp .time-icon {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%; }
+                    #main-extract div .reward-container .item-content .deal-container .deal-item header div .timestamp .time-icon img {
+                      width: 15px;
+                      height: 15px;
+                      border-radius: 50%; }
+                  #main-extract div .reward-container .item-content .deal-container .deal-item header div .timestamp .deal-timestamp {
+                    font-weight: 600;
+                    padding-left: 5px; }
+            #main-extract div .reward-container .item-content .deal-container .deal-item .deal-input {
+              display: none; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item .deal-input:checked ~ .deal-content {
+                max-height: 100vh; }
+            #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content {
+              padding-top: 10px;
+              transition: all 0.3s ease-in-out;
+              max-height: 0; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .gifted {
+                text-align: center; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .gifted span {
+                  font-weight: 600; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .deal-status {
+                border-bottom: 1px solid #17494d60;
+                display: flex;
+                align-items: center;
+                padding: 2px; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .deal-status img {
+                  opacity: .5; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .deal-status p {
+                  padding: 2px;
+                  padding-left: 5px;
+                  width: calc(100% - 30px);
+                  border: none;
+                  text-align: left; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .reward-channel {
+                border-bottom: 1px solid #17494d60;
+                display: flex;
+                align-items: center;
+                padding: 2px; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .reward-channel img {
+                  opacity: .5; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .reward-channel p {
+                  padding: 2px;
+                  padding-left: 5px;
+                  width: calc(100% - 30px);
+                  border: none;
+                  text-align: left; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .deal-price {
+                padding: 2px;
+                text-align: left;
+                width: 100%;
+                border-bottom: 1px solid #17494d60; }
+                #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .deal-price span {
+                  font-weight: 600; }
+              #main-extract div .reward-container .item-content .deal-container .deal-item .deal-content .description {
+                padding: 2px;
+                text-align: left;
+                width: 100%; }
+
+#main-notifications-container {
+  width: 100%;
+  background-color: #90cee177;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 10px;
+  display: none; }
+  #main-notifications-container .notification-item {
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    background-color: #FFF;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; }
+    #main-notifications-container .notification-item:hover {
+      transform: scale(1.01);
+      -webkit-box-shadow: 0px 0px 3px 0px #000000;
+      box-shadow: 0px 0px 3px 0px #000000; }
+    #main-notifications-container .notification-item .notification-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; }
+      #main-notifications-container .notification-item .notification-header .icon {
+        width: 60px;
+        height: 60px; }
+        #main-notifications-container .notification-item .notification-header .icon img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 1px solid rgba(0, 0, 0, 0.4); }
+      #main-notifications-container .notification-item .notification-header h1 {
+        width: calc(100% - 70px);
+        margin-left: 5px;
+        text-align: left;
+        font-size: 13px; }
+    #main-notifications-container .notification-item p span {
+      font-weight: 500; }
+    #main-notifications-container .notification-item .notification-content {
+      width: 100%;
+      word-wrap: break-word; }
+
+#btn-returns-container {
+  padding: 20px 10px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%; }
+  #btn-returns-container input {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px; }
+
+/*# sourceMappingURL=style.css.map */

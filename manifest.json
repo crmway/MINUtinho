@@ -1,0 +1,20 @@
+{
+  "name": "MINUtinho",
+  "author": {
+    "name": "tiagofmuniz",
+    "email": "tiago@tecnasistemas.com.br",
+    "url": "https://minutrade1652204502.zendesk.com/agent"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/iframe.html",
+        "flexible": true
+      }
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
